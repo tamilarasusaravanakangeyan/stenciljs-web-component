@@ -1,0 +1,14 @@
+/* Add some basic styling */
+ul {
+    list-style-type: none;
+    padding-left: 20px;
+  }
+  
+  li > div {
+    cursor: pointer;
+  }
+  
+  li > div > span {
+    margin-left: 10px;
+  }
+  

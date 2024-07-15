@@ -1,0 +1,37 @@
+<!-- <li>
+    <div (click)="item.children ? item.expanded = !item.expanded : null">
+      <a *ngIf="item.link" [routerLink]="item.link">{{ item.title }}</a>
+      <span *ngIf="!item.link">{{ item.title }}</span>
+      <span *ngIf="item.children" (click)="toggle(item)">{{ item.expanded ? '-' : '+' }}</span>
+    </div>
+    <ul *ngIf="item.children && item.expanded">
+      <app-menu-item *ngFor="let child of item.children" [item]="child"></app-menu-item>
+    </ul>
+  </li> -->
+  
+  <!-- src/app/menu/menu.component.html -->
+<nav class="menu-container">
+    <ul class="menu">
+        <li class="menu-item" *ngIf="!item.children">
+          <a [routerLink]="item.link">{{ item.title }}</a>
+        </li>
+        <li class="menu-item" *ngIf="item.children">
+          <a>{{ item.title }}</a>
+          <ul class="submenu">
+            <ng-container *ngFor="let child of item.children">
+              <li class="submenu-item">
+                <a [routerLink]="child.link">{{ child.title }}</a>
+                <ul class="submenu">
+                    <ng-container *ngFor="let child1 of child.children">
+                      <li class="submenu-item">
+                        <a [routerLink]="child1.link">{{ child1.title }}</a>
+                      </li>
+                    </ng-container>
+                  </ul>
+              </li>
+            </ng-container>
+          </ul>
+        </li>
+    </ul>
+  </nav>
+  
